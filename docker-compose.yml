@@ -18,8 +18,12 @@ services:
     container_name: "expresscart-mongodb"
     volumes:
       - expresscart-mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ec
+      MONGO_INITDB_ROOT_PASSWORD: ec
+      MONGO_INITDB_DATABASE: expresscart
     ports:
       - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null
 volumes:
-  expresscart-mongo-data:
+  expresscart-mongo-data: {}
